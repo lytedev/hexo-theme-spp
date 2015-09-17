@@ -1,0 +1,41 @@
+:coffeescript
+  theme = @theme.config
+  config = @config
+
+%header#site-head{style: "#{ if theme.cover? then 'background-image: url(' + theme.cover + ')' else '' }"}
+  .vertical
+    .site-head-content.inner
+      #site-head-content.inner
+        - if theme.logo
+          %a.blog-logo{href: "@config.root"}
+            %img{src: theme.logo, alt: "#{ if theme.logo_alt? then theme.logo_alt else 'Blog logo' }"}
+
+        %h1.blog-title
+          - if theme.title_image
+            %img{src: theme.title_image, alt: config.title}
+          - else
+            %h1.blog-title 
+              = @config.title
+
+        %h2.blog-description
+          = @config.subtitle
+
+        %a.btn.first Show me more
+        %a.btn.last Contact
+        %i#header-arrow.fa.fa-angle-down
+
+%main.content{role: "main"}
+  .fixed-nav
+
+  - for post in @locals.cache.posts.data
+    .post-holder
+      %article.post
+        %header.post-header
+          %h2.post-title
+            = post.title
+        %section.post-content
+          %p
+            != post.content
+
+        .post-after
+

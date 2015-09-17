@@ -1,0 +1,6 @@
+%footer.site-footer
+  .inner.last
+    %section.copyright Copyright &copy; Daniel Flanagan
+    %section.meta-links
+      %a{href: "#"} Privacy Policy
+

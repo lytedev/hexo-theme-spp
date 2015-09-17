@@ -2,12 +2,14 @@
  * Main JS file for GhostScroll behaviours
  */
 var $post = $('.post'),
-	$first = $('.post.first'),
-	$last = $('.post.last'),
+	$first = $('.post-holder .post').first(),
+	$last = $('.post-holder .post').last(),
 	$fnav = $('.fixed-nav'),
 	$postholder = $('.post-holder'),
 	$postafter = $('.post-after'),
 	$sitehead = $('#site-head');
+
+console.log($first);
 
 /*globals jQuery, document */
 (function ($) {
